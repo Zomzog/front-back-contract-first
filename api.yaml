@@ -1,0 +1,46 @@
+---
+openapi: 3.0.3
+info:
+  title: Stock Reporting API.
+  description: Stock Reporting APIs v1.0
+  version: '1.0.0'
+servers:
+  - url: "/"
+paths:
+  "/api/v12/item/{itemID}":
+    get:
+      parameters:
+        - name: itemID
+          in: path
+          description: Id of the item
+          required: true
+          schema:
+            type: integer
+            format: int32
+          example: 49
+      responses:
+        200:
+          description: "All content (no next page)"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Item"
+components:
+  schemas:
+    Item:
+      type: object
+      properties:
+        item_id:
+          type: integer
+          example: '3185473'
+        name:
+          type: string
+          example: 'Bike'
+        model:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: '3185473'

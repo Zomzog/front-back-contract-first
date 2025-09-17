@@ -5,7 +5,7 @@ theme: seriph
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://cover.sli.dev
 # some information about your slides (markdown enabled)
-title: Welcome to Slidev
+title: A Tale of Two Teams  The Contract-First API Chronicles
 info: |
   ## Slidev Starter Template
   Presentation slides for developers.
@@ -428,11 +428,11 @@ public interface ItemApi {
 
 ---
 
-# Let's code!
+# Let's update my code with that!
 
 ````md magic-move
 ```ts
-type Item{
+type Item {
     item_id: number,
     name: string,
     model: Model,
@@ -443,7 +443,7 @@ type Model {
 }
 ```
 ```ts
-type Item{
+type Item {
     item_id: string,
     name: string,
     model: Model,
@@ -475,8 +475,8 @@ backgroundSize: contain
 
 ---
 
-# Let's code!
-
+# Let's go back to code it again...
+<img src="/front-work.png" alt="front work" class="h-100" />
 <div v-click>
     <div
     v-motion
@@ -533,11 +533,132 @@ export interface ItemModelDTO {
 </div>
 
 ---
+layout: TwoColumns
+---
 
-Pas ce que veux exactement le front,
-utilisation du generateur qui fait du zod
+::title::
+# Now that I can trust this contrat
+# let's push it a little further
+
+::left::
+
+<div v-click.at="1">
+
+```ts
+import fs from 'fs';
+import { openapiZodSchemas } from 'zod-openapi';
+
+const openapiSpec = fs.readFileSync('openapi.yaml', 'utf8');
+const schemas = openapiZodSchemas(JSON.parse(openapiSpec));
+
+const schemaNames = Object.keys(schemas);
+const typesContent = schemaNames.map(name => {
+  const zodSchema = schemas[name];
+  const zodType = `export type ${name} = ${zodSchema.tsType()};`;
+  return zodType;
+}).join('\n\n');
+
+fs.writeFileSync('types.ts', typesContent);
+```
+
+</div>
+
+::right::
+
+<div v-click.at="2">
+
+```ts
+export type Item = {
+  item_id: number;
+  name: string;
+  model: {
+    id: number;
+  };
+};
+```
+
+</div>
+---
+
+# Now let's get a little more crazy...
+
+```bash
+npx openapi-zod-client api.yaml --output zod.ts
+```
+---
+layout: TwoColumns
+---
+
+::title::
+# Wow what the he...
+
+::left::
+<div v-click.at="1">
+
+```ts
+import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+import { z } from "zod";
+
+const Item = z
+  .object({
+    item_id: z.number().int(),
+    name: z.string(),
+    model: z.object({ id: z.number().int() }).partial().passthrough(),
+  })
+  .partial()
+  .passthrough();
+
+export const schemas = {
+  Item,
+};
+```
+</div>
+
 
 ---
 
-Et si on allait plus loins, generation client http
-customisation de la generation pour correspondre exactement au besoin (soulever l'objection)
+---
+layout: TwoColumns
+---
+
+::title::
+# Even more bang for your buck
+
+::left::
+<div v-click.at="1">
+
+```ts
+const endpoints = makeApi([
+  {
+    method: "get",
+    path: "/api/v12/item/:itemID",
+    alias: "getApiv12itemItemID",
+    requestFormat: "json",
+    parameters: [
+      {
+        name: "itemID",
+        type: "Path",
+        schema: z.number().int(),
+      },
+    ],
+    response: z.array(Item),
+  },
+]);
+```
+</div>
+::right::
+<div v-click.at="2">
+
+```ts
+
+export const api = new Zodios(endpoints);
+
+export function createApiClient(baseUrl: string, options?: ZodiosOptions) {
+  return new Zodios(baseUrl, endpoints, options);
+}
+
+
+```
+</div>
+
+---

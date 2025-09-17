@@ -1,0 +1,28 @@
+{
+  "components": {
+    "schemas": {
+      "Item": {
+        "type": "object",
+        "properties": {
+          "item_id": {
+            "type": "integer",
+            "example": "3185473"
+          },
+          "name": {
+            "type": "string",
+            "example": "Bike"
+          },
+          "model": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "example": "3185473"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
