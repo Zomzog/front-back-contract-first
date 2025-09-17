@@ -71,22 +71,22 @@ backgroundSize: contain
 
 ````md magic-move
 ```ts
-type Item{
+type Item {
 }
 ```
 ```ts
-type Item{
+type Item {
     itemID: number,
 }
 ```
 ```ts
-type Item{
+type Item {
     itemID: number,
     name: string,
 }
 ```
 ```ts
-type Item{
+type Item {
     itemID: number,
     name: string,
     model: number,
@@ -177,7 +177,8 @@ backgroundSize: contain
 Quel moyen pourrions nous utiliser pour reussir à nous comprendre 
 -->
 
-# Let's re-talk
+# Let's
+# RE-talk
 
 ---
 transition: fade
