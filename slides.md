@@ -585,6 +585,7 @@ export type Item = {
 ```bash
 npx openapi-zod-client api.yaml --output zod.ts
 ```
+<img src="/front-joy.png" alt="front work" class="center h-100" />
 ---
 layout: TwoColumns
 ---
@@ -660,5 +661,10 @@ export function createApiClient(baseUrl: string, options?: ZodiosOptions) {
 
 ```
 </div>
+
+---
+
+# Contract First Api et c'est parti ...
+<img src="/victory.png" alt="front work" class="h-100" />
 
 ---
