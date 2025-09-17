@@ -341,7 +341,9 @@ image: /talkoas.png
 backgroundSize: contain
 ---
 
-# Chapter 2
+# Let's
+# RE-talk
+# again
 
 ---
 transition: fade
@@ -350,7 +352,8 @@ image: /talkfirst.png
 backgroundSize: contain
 ---
 
-# Chapter 3
+# Contract
+# First ?
 
 ---
 
@@ -479,7 +482,9 @@ backgroundSize: contain
 ---
 
 # Let's go back to code it again...
-<img src="/front-work.png" alt="front work" class="h-100" />
+<div class="text-sm flex items-center justify-center">
+  <img src="/front-work.png" alt="front work" class="h-100" />
+</div>
 <div v-click>
     <div
     v-motion
@@ -588,13 +593,16 @@ export type Item = {
 ```bash
 npx openapi-zod-client api.yaml --output zod.ts
 ```
-<img src="/front-joy.png" alt="front work" class="center h-100" />
+<div class="text-sm flex items-center justify-center">
+  <img src="/front-joy.png" alt="front work" class="center h-100" />
+</div>
 ---
 layout: TwoColumns
 ---
 
 ::title::
 # Wow what the he...
+# Free zod schema
 
 ::left::
 <div v-click.at="1">
@@ -618,15 +626,13 @@ export const schemas = {
 ```
 </div>
 
-
----
-
 ---
 layout: TwoColumns
 ---
 
 ::title::
 # Even more bang for your buck
+# Free Api client
 
 ::left::
 <div v-click.at="1">
@@ -668,6 +674,8 @@ export function createApiClient(baseUrl: string, options?: ZodiosOptions) {
 ---
 
 # Contract First Api et c'est parti ...
+<div class="text-sm flex items-center justify-center">
 <img src="/victory.png" alt="front work" class="h-100" />
+</div>
 
 ---
