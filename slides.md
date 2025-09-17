@@ -32,6 +32,8 @@ seoMeta:
 
 in an IT open space
 
+<div class="text-sm flex items-center justify-center">Disclaimer: All characters are fictional, and any resemblance to any persons living or dead is purely coincidental.</div>
+
 ---
 layout: image
 image: /talk.png
