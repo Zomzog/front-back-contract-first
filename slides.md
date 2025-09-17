@@ -61,6 +61,11 @@ Bah GET /api/v12/items et je t'envoi le nom, son model et la date
 -->
 
 ---
+layout: image
+image: /postit.png
+backgroundSize: contain
+---
+---
 
 # Let's code!
 
@@ -118,7 +123,7 @@ backgroundSize: contain
 
 ---
 
-# Let's test!
+# Let's fetch that new API 💙!
 
 <div v-click.at="1">
 GET /api/v12/items
@@ -129,7 +134,7 @@ GET /api/v12/items
 {
     "itemId": null,
     "name": "Bike",
-    "model" null
+    "model": null
 }
 ```
 </div>
@@ -168,8 +173,11 @@ layout: image
 image: /talk.png
 backgroundSize: contain
 ---
+<!-- 
+Quel moyen pourrions nous utiliser pour reussir à nous comprendre 
+-->
 
-# Chapter 1
+# Let's re-talk
 
 ---
 transition: fade
@@ -178,7 +186,15 @@ image: /talkoas.png
 backgroundSize: contain
 ---
 
-# Chapter 2
+# OpenApi
+# Spec 3
+
+<!--- 
+OpenApi Spec 3 comme solution
+T: tu m'expliques 
+T: me montre le contrat 
+On se met d'accord sur l'utilisation
+-->
 
 ---
 
@@ -225,11 +241,11 @@ components:
 
 ---
 
-# Let's code!
+# Let's re-code!
 
 ````md magic-move
 ```ts
-type Item{
+type Item {
     itemID: number,
     name: string,
     model: number,
@@ -237,7 +253,7 @@ type Item{
 ```
 
 ```ts
-type Item{
+type Item {
     item_id: number,
     name: string,
     model: Model,
@@ -269,7 +285,7 @@ backgroundSize: contain
 
 ---
 
-# Let's test!
+# Let's test now in Prod!
 
 <div v-click.at="1">
 GET /api/v12/items
@@ -524,3 +540,4 @@ utilisation du generateur qui fait du zod
 ---
 
 Et si on allait plus loins, generation client http
+customisation de la generation pour correspondre exactement au besoin (soulever l'objection)
